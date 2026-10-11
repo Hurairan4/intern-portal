@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from .models import InternProfile
+from .models import InternProfile, Project
 
 
 class StyledMixin:
@@ -47,3 +47,12 @@ class ProfileForm(StyledMixin, forms.ModelForm):
         model = InternProfile
         fields = ("track", "skills", "bio")
         widgets = {"bio": forms.Textarea(attrs={"rows": 4})}
+
+
+class ProjectForm(StyledMixin, forms.ModelForm):
+    github_link = forms.URLField(label="GitHub link")
+
+    class Meta:
+        model = Project
+        fields = ("title", "description", "github_link")
+        widgets = {"description": forms.Textarea(attrs={"rows": 5})}

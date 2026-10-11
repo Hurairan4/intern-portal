@@ -7,6 +7,7 @@
       <a class="brand" href="/"><span class="brand-mark"></span>Internee Portal</a>
       {% if user.is_authenticated %}
       <div class="d-flex gap-2">
+        <a class="btn-nav text-decoration-none" href="{% url 'project_list' %}">My projects</a>
         <a class="btn-nav text-decoration-none" href="{% url 'profile' %}">Profile</a>
         <form method="post" action="{% url 'logout' %}" class="m-0">
           {% csrf_token %}

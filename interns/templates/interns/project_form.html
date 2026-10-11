@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card-box">
+  <h4 class="mb-1">Submit a project</h4>
+  <p class="muted mb-4">Add a title, a short description and the link to your GitHub repository.</p>
+  <form method="post">
+    {% csrf_token %}
+    {% include "_form.html" %}
+    <div class="d-flex gap-2">
+      <button class="btn-main">Submit project</button>
+      <a class="btn btn-light" href="{% url 'project_list' %}">Cancel</a>
+    </div>
+  </form>
+</div>
+{% endblock %}
