@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>{% include "_head.html" %}</head>
+<body>
+  <div class="auth-wrap">
+    <section class="auth-side">
+      <a class="brand mb-4" href="/"><span class="brand-mark"></span>Internee Portal</a>
+      <h1>Your internship, in one place.</h1>
+      <p>Submit your projects, get scored by mentors, and watch your progress grow.</p>
+    </section>
+    <section class="auth-main">
+      <div class="auth-form">
+        {% block content %}{% endblock %}
+      </div>
+    </section>
+  </div>
+</body>
+</html>

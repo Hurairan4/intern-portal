@@ -1,0 +1,11 @@
+{% extends "auth_base.html" %}
+{% block content %}
+<h3 class="mb-1">Log in</h3>
+<p class="muted mb-4">Welcome back. Enter your details to continue.</p>
+<form method="post">
+  {% csrf_token %}
+  {% include "_form.html" %}
+  <button class="btn-main w-100 mt-2">Log in</button>
+</form>
+<p class="mt-4 muted">New here? <a href="{% url 'register' %}">Create an account</a></p>
+{% endblock %}

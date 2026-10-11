@@ -1,0 +1,13 @@
+{% if form.non_field_errors %}
+  <div class="field-error mb-3">{{ form.non_field_errors|join:" " }}</div>
+{% endif %}
+{% for field in form %}
+  <div class="mb-3">
+    <label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+    {{ field }}
+    {% if field.help_text and field.name == "skills" %}
+      <div class="form-hint">{{ field.help_text }}</div>
+    {% endif %}
+    {% if field.errors %}<div class="field-error">{{ field.errors|join:" " }}</div>{% endif %}
+  </div>
+{% endfor %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card-box mb-4">
+  <div class="d-flex align-items-center gap-3">
+    <div class="avatar">{{ user.username|slice:":1"|upper }}</div>
+    <div>
+      <h3 class="mb-1">{{ user.get_full_name|default:user.username }}</h3>
+      <div class="muted mb-2">{{ user.email }}</div>
+      <span class="badge-track">{{ profile.get_track_display }}</span>
+    </div>
+  </div>
+  {% if skill_list %}
+  <div class="d-flex flex-wrap gap-2 mt-4">
+    {% for skill in skill_list %}<span class="chip">{{ skill }}</span>{% endfor %}
+  </div>
+  {% endif %}
+  {% if profile.bio %}<p class="mt-4 mb-0">{{ profile.bio }}</p>{% endif %}
+</div>
+
+<div class="card-box">
+  <h4 class="mb-3">Edit profile</h4>
+  <form method="post">
+    {% csrf_token %}
+    {% include "_form.html" %}
+    <button class="btn-main">Save changes</button>
+  </form>
+</div>
+{% endblock %}
