@@ -22,8 +22,13 @@ class Command(BaseCommand):
     def add_arguments(self, parser):
         parser.add_argument("--users", type=int, default=1000)
         parser.add_argument("--password", default="Intern@12345")
+        parser.add_argument("--once", action="store_true")
 
     def handle(self, *args, **options):
+        if options["once"] and User.objects.filter(username="intern1").exists():
+            self.stdout.write("Already seeded, skipping")
+            return
+
         fake = Faker()
         count = options["users"]
         password_hash = make_password(options["password"])

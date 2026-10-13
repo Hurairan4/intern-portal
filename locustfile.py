@@ -3,7 +3,7 @@ import random
 from locust import HttpUser, between, task
 
 # Number of seeded users (intern1 ... internN). Match the --users value you used.
-USER_COUNT = 1000
+USER_COUNT = 2000
 PASSWORD = "Intern@12345"
 
 
